@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchWather } from "./mainAsync";
 
 const initialState = {
-    data: []
+    data: {}
 }
 
 export const mainSlice = createSlice({
@@ -11,7 +11,6 @@ export const mainSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchWather.fulfilled, (state, action) => {
-            console.log(action.payload)
             state.data = action.payload
         })
     }
