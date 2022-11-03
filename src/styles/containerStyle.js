@@ -2,22 +2,22 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
     width: 100%;
-    height: 100vh;
-    padding: 40px;
+    min-height: 100vh;
+    padding: 20px;
     font-family: sans-serif;
     background-image: url("https://www.presentationpoint.com/wp-content/uploads/2019/02/dphdwep.gif");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     .flex-container {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
         align-items: baseline;
     }
     
     .state_wrapper {
         width: 100%;
-        max-width: 411px;
         display: flex;
         padding: 20px;
         align-items: center;
@@ -68,12 +68,13 @@ export const Wrapper = styled.div`
     }
     .weather_wrapper-image {
         .weather_container {
-            display: flex;
-            flex-wrap: wrap;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 10px;
         }
         .weather-wrapper {
-            width: 100px;
+            width: 100%;
             height: 150px;
             transition: 0.3s;
             padding: 5px;
@@ -91,12 +92,15 @@ export const Wrapper = styled.div`
                 color: white;
             }
         }
+        position: relative;
         .toltip_wrapper {
             width: 100%;
             max-width: 500px;
             display: flex;
             flex-wrap: wrap;
             margin-top: 20px;
+            z-index: 10;
+            position: absolute;
             background-color: white;
             .toltip-cnt {
                 margin-top: 20px;

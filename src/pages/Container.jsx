@@ -1,6 +1,7 @@
 import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Chart } from '../components/Chart'
 import { fetchWather } from '../store/mainAsync'
 import { Wrapper } from '../styles/containerStyle'
 
@@ -19,6 +20,7 @@ export const Container = () => {
         for (let i = 0; i < data.list?.length; i += 8) {
             dataWeather.push(data.list[i])
         }
+
         for (let i = 0; i < data.list?.length; i += 60) {
             cardData.push(data.list[i])
         }
@@ -84,6 +86,7 @@ export const Container = () => {
                     </div>
                 </div>
             </div>
+            <Chart data={data?.list} />
         </Wrapper>
     )
 }
