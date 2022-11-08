@@ -9,23 +9,25 @@ export const Container = () => {
     const { data } = useSelector(store => store)
     const dispatch = useDispatch()
     const [id, setId] = useState()
-    const dataWeather = []
+    const dataWeather = {}
     const cardData = []
-    
+
     useEffect(() => {
         dispatch(fetchWather())
     }, [dispatch])
 
     const listWeather = () => {
-        for (let i = 0; i < data.list?.length; i += 8) {
+        for (let i = 0; i < data.list?.length; i++) {
             dataWeather.push(data.list[i])
         }
-
+        
         for (let i = 0; i < data.list?.length; i += 60) {
             cardData.push(data.list[i])
         }
+        console.log(dataWeather[[]])
     }
     listWeather()
+    
     
     const filteredItem = () => {
         const filterItem = data.list?.filter(item => moment(item.dt_txt).format("ddd") === id)
@@ -34,8 +36,8 @@ export const Container = () => {
 
     return (
         <Wrapper>
-            <div className="flex-container">
-                <div className='state_wrapper'>
+            <div className="flex-container"> 
+                 <div className='state_wrapper'>
                     {cardData?.map(item => 
                         <div className="state-cnt">
                             <div className='top-title'>
