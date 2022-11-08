@@ -9,7 +9,7 @@ export const Container = () => {
     const { data } = useSelector(store => store)
     const dispatch = useDispatch()
     const [id, setId] = useState()
-    const dataWeather = {}
+    const dataWeather = []
     const cardData = []
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export const Container = () => {
     }, [dispatch])
 
     const listWeather = () => {
-        for (let i = 0; i < data.list?.length; i++) {
+        for (let i = 0; i < data.list?.length; i += 8) {
             dataWeather.push(data.list[i])
         }
         
